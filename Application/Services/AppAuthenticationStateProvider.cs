@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Application.Services
 {
     public partial class AppAuthenticationStateProvider : AuthenticationStateProvider
     {
-        private readonly AuthTokenProvider _tokenProvider = new();
+        [AutoInject] private readonly AuthTokenProvider _tokenProvider = new();
         public async Task RaiseAuthenticationStateHasChanged()
         {
             NotifyAuthenticationStateChanged(Task.FromResult(await GetAuthenticationStateAsync()));
