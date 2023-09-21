@@ -1,0 +1,133 @@
+{
+  "Files": [
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\bin\\Debug\\net7.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\obj\\Debug\\net7.0\\build-gz\\W1iF2Ic+.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\obj\\Debug\\net7.0\\scopedcss\\bundle\\BlazorTemplate.styles.css",
+      "PackagePath": "staticwebassets\\BlazorTemplate.styles.css"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\obj\\Debug\\net7.0\\service-worker-assets.js",
+      "PackagePath": "staticwebassets\\service-worker-assets.js"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\obj\\Debug\\net7.0\\service-worker\\service-worker.published.js",
+      "PackagePath": "staticwebassets\\service-worker.js"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\fonts\\iransans\\IRANSansDNFaNum.ttf",
+      "PackagePath": "staticwebassets\\fonts\\iransans\\IRANSansDNFaNum.ttf"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\fonts\\iransans\\IRANSansDNFaNum.woff2",
+      "PackagePath": "staticwebassets\\fonts\\iransans\\IRANSansDNFaNum.woff2"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\fonts\\iransans\\irsans.ttf",
+      "PackagePath": "staticwebassets\\fonts\\iransans\\irsans.ttf"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\fonts\\iransans\\irsans.woff",
+      "PackagePath": "staticwebassets\\fonts\\iransans\\irsans.woff"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\icon-512.png",
+      "PackagePath": "staticwebassets\\icon-512.png"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\manifest.json",
+      "PackagePath": "staticwebassets\\manifest.json"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\scripts\\app.js",
+      "PackagePath": "staticwebassets\\scripts\\app.js"
+    },
+    {
+      "Id": "G:\\Projects\\BlazorTemplate\\AdminTemplate\\wwwroot\\scripts\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\scripts\\bootstrap.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BlazorTemplate.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.BlazorTemplate.props",
+      "PackagePath": "build\\BlazorTemplate.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorTemplate.props",
+      "PackagePath": "buildMultiTargeting\\BlazorTemplate.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.BlazorTemplate.props",
+      "PackagePath": "buildTransitive\\BlazorTemplate.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
