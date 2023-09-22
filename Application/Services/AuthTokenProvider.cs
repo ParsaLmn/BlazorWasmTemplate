@@ -9,9 +9,15 @@ using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public partial class AuthTokenProvider : IAuthTokenProvider
+    public class AuthTokenProvider : IAuthTokenProvider
     {
-        [AutoInject] private readonly ILocalStorageService _localStorageService;
+         private ILocalStorageService _localStorageService = default!;
+
+        public AuthTokenProvider(ILocalStorageService localStorageService)
+        {
+            _localStorageService = localStorageService;
+        }
+
         public async Task<string?> GetAcccessTokenAsync()
         {
             return await _localStorageService.GetItemAsStringAsync("token");

@@ -5,14 +5,23 @@ using Microsoft.JSInterop;
 
 namespace BlazorTemplate.Components
 {
-    public partial class AppComponentBase : ComponentBase
+    public class AppComponentBase : ComponentBase
     {
-        [AutoInject] protected IJSRuntime JsRuntime = default!;
+        protected IJSRuntime JsRuntime = default!;
+        protected HttpClient HttpClient = default!;
+        protected NavigationManager NavigationManager = default!;
+        protected IAuthTokenProvider AuthTokenProvider = default!;
+        protected IAuthenticationService AuthenticationService = default!;
+        protected AppAuthenticationStateProvider AuthenticationStateProvider = default!;
 
-        [AutoInject] protected HttpClient HttpClient = default!;
-        [AutoInject] protected NavigationManager NavigationManager = default!;
-        [AutoInject] protected IAuthTokenProvider AuthTokenProvider = default!;
-        [AutoInject] protected IAuthenticationService AuthenticationService = default!;
-        [AutoInject] protected AppAuthenticationStateProvider AuthenticationStateProvider = default!;
+        public AppComponentBase(IJSRuntime jsRuntime, NavigationManager navigationManager, IAuthTokenProvider authTokenProvider, IAuthenticationService authenticationService, AppAuthenticationStateProvider authenticationStateProvider = null)
+        {
+            JsRuntime = jsRuntime;
+            NavigationManager = navigationManager;
+            AuthTokenProvider = authTokenProvider;
+            AuthenticationService = authenticationService;
+            AuthenticationStateProvider = authenticationStateProvider;
+        }
+
     }
 }

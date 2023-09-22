@@ -1,23 +1,23 @@
 ﻿using Application.Interfaces;
 using Blazored.LocalStorage;
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.Extensions.DependencyInjection;
 using Shared.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public partial class AuthenticationService : IAuthenticationService
+    public class AuthenticationService : IAuthenticationService
     {
-        [AutoInject] private HttpClient _httpClient;
-        [AutoInject] private readonly ILocalStorageService _localStorageService;
-        [AutoInject] private AppAuthenticationStateProvider _authenticationStateProvider;
+        private HttpClient _httpClient = default!;
+        private ILocalStorageService _localStorageService = default!;
+        private AppAuthenticationStateProvider _authenticationStateProvider = default!;
+
+        public AuthenticationService(HttpClient httpClient, ILocalStorageService localStorageService, AppAuthenticationStateProvider authenticationStateProvider)
+        {
+            _httpClient = httpClient;
+            _localStorageService = localStorageService;
+            _authenticationStateProvider = authenticationStateProvider;
+        }
+
         public async Task SignIn(SignInRequestDto dto)
         {
             var response = await _httpClient.PostAsJsonAsync("https://ticketing.razysoft.net/api/Account/Login", dto);

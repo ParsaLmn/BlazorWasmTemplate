@@ -1,17 +1,18 @@
-﻿using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Application.Interfaces;
+using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public partial class AppAuthenticationStateProvider : AuthenticationStateProvider
+    public class AppAuthenticationStateProvider : AuthenticationStateProvider
     {
-        [AutoInject] private readonly AuthTokenProvider _tokenProvider = new();
+        private readonly IAuthTokenProvider _tokenProvider;
+
+        public AppAuthenticationStateProvider(IAuthTokenProvider tokenProvider)
+        {
+            _tokenProvider = tokenProvider;
+        }
+
         public async Task RaiseAuthenticationStateHasChanged()
         {
             NotifyAuthenticationStateChanged(Task.FromResult(await GetAuthenticationStateAsync()));
@@ -23,7 +24,7 @@ namespace Application.Services
 
             if (string.IsNullOrWhiteSpace(access_token)) return NotSignedIn();
 
-            var identity = new ClaimsIdentity(claims: ParseTokenClaims(access_token), authenticationType: "Bearer", nameType: "name", roleType: "role");
+            var identity = new ClaimsIdentity(claims: ParseTokenClaims(access_token), authenticationType: "Bearer");
 
             return new AuthenticationState(new ClaimsPrincipal(identity));
         }
@@ -33,12 +34,12 @@ namespace Application.Services
             return (await GetAuthenticationStateAsync()).User.Identity?.IsAuthenticated == true;
         }
 
-        private static AuthenticationState NotSignedIn()
+        private AuthenticationState NotSignedIn()
         {
             return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
         }
 
-        private static IEnumerable<Claim> ParseTokenClaims(string access_token)
+        private IEnumerable<Claim> ParseTokenClaims(string access_token)
         {
             return Jose.JWT.Payload<Dictionary<string, object>>(access_token)
                 .Select(keyValue => new Claim(keyValue.Key, keyValue.Value.ToString() ?? string.Empty))

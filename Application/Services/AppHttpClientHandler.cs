@@ -11,9 +11,15 @@ using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public partial class AppHttpClientHandler : HttpClientHandler
+    public class AppHttpClientHandler : HttpClientHandler
     {
-        [AutoInject] private IAuthTokenProvider _tokenProvider = default!;
+         private IAuthTokenProvider _tokenProvider = default!;
+
+        public AppHttpClientHandler(IAuthTokenProvider tokenProvider)
+        {
+            _tokenProvider = tokenProvider;
+        }
+
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             if (request.Headers.Authorization is null)
