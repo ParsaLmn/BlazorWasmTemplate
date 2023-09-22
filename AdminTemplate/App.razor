@@ -9,8 +9,7 @@
                     not authorize
                 </NotAuthorized>
                 <Authorizing>
-                    @*<LoadingComponent Color="#F58025" />*@
-                    loading
+                    <LoadingComponent Text="در حال بارگزاری..." />                    
                 </Authorizing>
             </AuthorizeRouteView>
         </Found>
@@ -19,8 +18,7 @@
             not found
         </NotFound>
         <Navigating>
-            @*<LoadingComponent Color="#F58025" />*@
-            loading...
+            <LoadingComponent Text="در حال بارگزاری..." />
         </Navigating>
     </Router>
 </CascadingAuthenticationState>
