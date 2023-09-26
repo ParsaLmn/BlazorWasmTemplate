@@ -1,34 +1,26 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="">AdminTemplate</a>
-    </div>
-</div>
+﻿@using BlazorTemplate.Components;
+@inherits AppComponentBase
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-    </nav>
-</div>
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+@if (IsMenuOpen)
+{
+    <div class="menu-shadow" @onclick=CloseNavMenu></div>
 }
+
+<section class="nav-menu @(IsMenuOpen ? null : "nav-menu--closed")">
+    <div class="menu-content">
+        <div class="menu-top-row text-center border-0" style="background-image:unset">
+            <img class="h-100" src="/images/avatar.png" aria-label="razy-logo" />
+        </div>
+        <BitNav Items="_navItems"
+                Class="bit-nav-menu"
+                AriaLabel="NavMenu"
+                DefaultSelectedItem="_navItems[0]"
+                OnItemClick="(BitNavItem item) => HandleOnItemClick(item)"
+                ClassStyles="@(new() { ToggleButton = new() { Class="toggle-button" },
+                                       ItemContainer = new() { Class="item-container" },
+                                       Item = new() { Class="item" },
+                                       SelectedItemContainer = new() { Class="selected-item-container" },
+                                       SelectedItem = new() { Class="selected-item" } })">
+        </BitNav>
+    </div>
+</section>

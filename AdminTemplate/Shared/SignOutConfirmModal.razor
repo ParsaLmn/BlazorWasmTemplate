@@ -1,0 +1,21 @@
+﻿@using BlazorTemplate.Components;
+@inherits AppComponentBase
+
+<BitModal @bind-IsOpen="IsOpen">
+    <div class="main-container">
+        <div class="header">
+            <span class="title">خروج</span>
+            <BitIconButton OnClick="CloseModal" IconName="BitIconName.ChromeClose" Title="خروج از حساب کاربری" />
+        </div>
+        <div class="body">مطمئن هستید که میخواهید از حساب کاربری خود خارج شوید؟</div>
+        <div class="btn-group">
+            <div class="mx-1">
+                <BitButton Class="bg-razy border-0" Style="margin-right: 0.5rem" OnClick="SignOut">بله</BitButton>
+            </div>
+
+            <div class="mx-1">
+                <BitButton Class="border-danger text-danger bg-white" OnClick="CloseModal">خیر</BitButton>
+            </div>
+        </div>
+    </div>
+</BitModal>

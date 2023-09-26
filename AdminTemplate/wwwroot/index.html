@@ -2,10 +2,15 @@
 <html lang="en" dir="rtl">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>AdminTemplate</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="RazySoft Ticketing">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Parsa_lmn">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlazorWasmTemplate</title>
     <base href="/" />
+    <link href="_content/Bit.BlazorUI/styles/bit.blazorui.css" rel="stylesheet" />
+    <link href="_content/Bit.BlazorUI.Icons/styles/bit.blazorui.icons.css" rel="stylesheet" />
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -13,23 +18,13 @@
     <link href="manifest.json" rel="manifest" />
     <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
-    <style>
-        .center-spinner {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            justify-content: center;
-        }
-    </style>
 </head>
 
 <body>
     <div id="app">
         <div class="center-spinner d-flex flex-column align-items-center">
             <div class="spinner-border" aria-hidden="true"></div>
-            <label role="status" class="mt-1">در حال بارگزاری...</label>           
+            <label role="status" class="mt-1">در حال بارگزاری...</label>
         </div>
     </div>
 
@@ -38,7 +33,9 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+
     <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_content/Bit.BlazorUI/scripts/bit.blazorui.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
     <script src="scripts/app.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>

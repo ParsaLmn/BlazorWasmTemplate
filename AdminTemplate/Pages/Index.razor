@@ -1,4 +1,8 @@
 ﻿@page "/"
+@using BlazorTemplate.Components;
+@using Microsoft.AspNetCore.Authorization;
+@inherits AppComponentBase
+@attribute [Authorize]
 
 <PageTitle>Index</PageTitle>
 

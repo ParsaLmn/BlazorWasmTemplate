@@ -1,0 +1,46 @@
+﻿@page "/sign-in"
+@using BlazorTemplate.Components;
+@inherits AppComponentBase
+@layout EmptyLayout
+
+<PageTitle>ورود</PageTitle>
+
+<div class="page-container">
+    <section class="page-section">
+        <EditForm Model="_signInModel" OnValidSubmit="DoSignIn" class="form">
+            <DataAnnotationsValidator />
+
+            @if (string.IsNullOrEmpty(_signInMessage) is false)
+            {
+                <BitMessageBar MessageBarType="@_signInMessageType" OnDismiss="() => _signInMessage = null">@_signInMessage</BitMessageBar>
+            }
+
+            <h2 class="form-title">ورود</h2>
+
+            <div class="form-input-container">
+            <label class="label label-control lable-custom">نام کاربری</label>
+            <InputText @bind-Value=_signInModel.UserName placeholder="0912121212" class="form-control" type="number" />
+            <ValidationMessage For="@(() => _signInModel.UserName)" />
+            </div>
+
+            <div class="form-input-container">
+                <label class="label label-control lable-custom">رمز عبور</label>
+                <div style="position:relative">
+                    <InputText @bind-Value=_signInModel.Password placeholder="رمز عبور خودرا وارد کنید..." class="form-control" type="@_passInputType" />
+                    <button type="button" style="position:absolute;left:1px;top:2px" @onclick="ShowPassword" class="border-0 bg-transparent py-1 px-2">
+                        <BitIcon IconName="@ShowHidePass" AriaLabel="@ShowHidePass.ToString()" />
+                    </button>
+                </div>
+                <ValidationMessage For="@(() => _signInModel.Password)" />
+            </div>
+
+            <BitLoadingButton Class="bg-razy text-white border-0" IsLoading="_isLoading"
+                              ButtonStyle="BitButtonStyle.Primary"
+                              Title="ورود"
+                              AriaLabel="ورود"
+                              ButtonType="BitButtonType.Submit">
+                <span>ورود</span>
+            </BitLoadingButton>
+        </EditForm>
+    </section>
+</div>

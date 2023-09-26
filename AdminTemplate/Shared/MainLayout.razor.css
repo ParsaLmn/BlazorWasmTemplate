@@ -1,81 +1,153 @@
-.page {
+@font-face {
+    font-family: "IRANSansDNF";
+    src: url(fonts/iransans/IRANSansDNFaNum.ttf);
+    src: url(fonts/iransans/IRANSansDNFaNum.woff2)
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    min-height: 100vh;
     position: relative;
-    display: flex;
-    flex-direction: column;
+    box-sizing: border-box;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    background: #fbfcff;
+    padding-top: 3rem;
+    padding-left: 12.875rem
 }
 
-main {
-    flex: 1;
+@media screen and (max-width: 75em) {
+    .main {
+        padding-left: 0
+    }
 }
 
-.sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+.main--full-page {
+    padding: 0;
+    min-height: 100%
 }
 
-.top-row {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3.5rem;
-    display: flex;
+    .main--full-page .site-content {
+        height: calc(100vh - 49px);
+        padding: var(--bit-status-bar-height) 0 0 0
+    }
+
+.bit-ios .main--full-page .site-content {
+    padding-top: env(safe-area-inset-top);
+    height: calc(100vh - 49px - env(safe-area-inset-bottom))
+}
+
+@media screen and (max-height: 700px) {
+    .main--full-page .site-content {
+        display: flex;
+        align-items: center;
+        height: unset !important;
+        min-height: calc(100vh - 49px - var(--bit-status-bar-height))
+    }
+
+    .bit-ios .main--full-page .site-content {
+        min-height: calc(100vh - 49px - env(safe-area-inset-bottom))
+    }
+}
+
+.site-content {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 3rem;
+    max-width: 88.5rem;
+    box-sizing: border-box;
+    padding-bottom: 2rem;
+    min-height: calc(100vh - 103px);
+    padding-top: calc(2rem + var(--bit-status-bar-height))
+}
+
+.bit-ios .site-content {
+    padding-top: calc(2rem + env(safe-area-inset-top));
+    min-height: calc(100vh - 103px - env(safe-area-inset-bottom))
+}
+
+@media screen and (min-width: 48.0625em)and (max-width: 75em) {
+    .site-content {
+        padding: 0 1.5rem;
+        max-width: 63rem;
+        padding-top: calc(2rem + var(--bit-status-bar-height));
+        padding-bottom: 2rem
+    }
+
+    .bit-ios .site-content {
+        padding-top: calc(2rem + env(safe-area-inset-top))
+    }
+}
+
+@media screen and (max-width: 48em) {
+    .site-content {
+        padding: 0 1rem;
+        max-width: 35.75rem;
+        padding-top: calc(1rem + var(--bit-status-bar-height));
+        padding-bottom: 1rem
+    }
+
+    .bit-ios .site-content {
+        padding-top: calc(1rem + env(safe-area-inset-top))
+    }
+}
+
+::deep a {
+    text-decoration: none !important;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+::deep ::-webkit-scrollbar-track {
+    background-color: #fff
+}
+
+::deep ::-webkit-scrollbar-thumb {
+    background-color: #a19f9d;
+    border-radius: 16px;
+    border: 4px solid #a19f9d
+}
+
+::deep .bit-btn-fluent {
+    border-radius: 0.125rem
+}
+
+::deep .bit-mdl-fluent .bit-mdl-container {
+    min-height: unset !important
+}
+
+::deep .validation-message {
+    color: #a80000
+}
+
+.status-bar {
+    top: 0;
+    width: 100%;
+    z-index: 1101;
+    display: none;
+    position: fixed;
+    text-align: center;
     align-items: center;
+    font-size: 0.875rem;
+    color: #0078d4;
+    justify-content: center;
+    background-color: #f2f2f2
 }
 
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
-
-    .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
-        text-decoration: underline;
-    }
-
-    .top-row ::deep a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-@media (max-width: 640.98px) {
-    .top-row:not(.auth) {
-        display: none;
-    }
-
-    .top-row.auth {
-        justify-content: space-between;
-    }
-
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        margin-left: 0;
-    }
+.bit-windows .status-bar, .bit-macos .status-bar {
+    display: flex;
+    color: #0078d4;
+    background-color: rgba(0,0,0,0);
+    height: var(--bit-status-bar-height)
 }
 
-@media (min-width: 641px) {
-    .page {
-        flex-direction: row;
-    }
-
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
-
-    .top-row {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
-
-    .top-row.auth ::deep a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
-
-    .top-row, article {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
+.bit-ios .status-bar {
+    display: flex;
+    color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0);
+    height: env(safe-area-inset-top)
 }
+/*# sourceMappingURL=MainLayout.razor.css.map */

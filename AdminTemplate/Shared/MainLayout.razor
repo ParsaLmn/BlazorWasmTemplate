@@ -1,17 +1,16 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page bg-white">
-    <div class="sidebar">
-        <NavMenu />
+<div class="status-bar">نام پروژه</div>
+
+<div class="main @(_isUserAuthenticated is false ? "main--full-page" : null)">
+    @if (_isUserAuthenticated)
+    {
+        <Header OnToggleMenu=@ToggleMenuHandler />
+        <NavMenu @bind-IsMenuOpen=@_isMenuOpen />
+    }
+    <div class="site-content bg-light">
+        @Body
     </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+    <Footer />
 </div>
+

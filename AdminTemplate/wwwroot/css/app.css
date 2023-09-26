@@ -6,42 +6,28 @@
     src: url(../fonts/iransans/IRANSansDNFaNum.woff2);
 }
 
-html, body {
-    font-family: 'IRANSansDNF','Helvetica Neue', Helvetica, Arial, sans-serif;
+:root {
+    --bit-status-bar-height: 0px
 }
 
-h1:focus {
-    outline: none;
+@font-face {
+    font-family: "IRANSansDNF"
 }
 
-a, .btn-link {
-    color: #0071c1;
+* {
+    overscroll-behavior: none;
+    font-family: "IRANSansDNF" !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0)
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-.content {
-    padding-top: 1.1rem;
-}
-
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
-}
-
-.invalid {
-    outline: 1px solid red;
-}
-
-.validation-message {
-    color: red;
+html, body, #app-container {
+    font-family: "IRANSansDNF" !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #fbfcff;
+    -webkit-font-smoothing: antialiased
 }
 
 #blazor-error-ui {
@@ -73,35 +59,155 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
-.loading-progress {
-    position: relative;
-    display: block;
-    width: 8rem;
-    height: 8rem;
-    margin: 20vh auto 1rem auto;
+
+.main-header {
+    left: 0
 }
 
-    .loading-progress circle {
-        fill: none;
-        stroke: #e0e0e0;
-        stroke-width: 0.6rem;
-        transform-origin: 50% 50%;
-        transform: rotate(-90deg);
+.main {
+    padding-right: 12.875rem;
+    padding-left: unset !important
+}
+
+.nav-menu {
+    right: 0;
+    background-color: #fff !important
+}
+
+@media screen and (max-width: 75em) {
+    .main {
+        padding-right: 0
     }
-
-        .loading-progress circle:last-child {
-            stroke: #1b6ec2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
-        }
-
-.loading-progress-text {
-    position: absolute;
-    text-align: center;
-    font-weight: bold;
-    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
 
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
+
+
+
+/****************************************/
+/*======>custom css<===========*/
+/****************************************/
+.center-spinner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+}
+select {
+    cursor: pointer !important
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    direction: ltr !important
+}
+
+.nowrap {
+    white-space: nowrap !important
+}
+
+.overflow-x-auto {
+    overflow-x: auto
+}
+
+.overflow-y-auto {
+    overflow-y: auto
+}
+
+.bit-brc-itm {
+    font-size: unset !important
+}
+
+.bg-razy {
+    --bs-bg-opacity: 1;
+    background-color: #f58025 !important
+}
+
+.bg-lightGray {
+    --bs-bg-opacity: 1;
+    background-color: #efefef !important
+}
+
+.text-razy {
+    --bs-text-opacity: 1;
+    color: #f58025 !important
+}
+
+.text-lightGray {
+    --bs-text-opacity: 1;
+    color: #efefef !important
+}
+
+.text-hover-razy:hover {
+    color: #f58025 !important
+}
+
+.text-hover-lightGray:hover {
+    color: #efefef !important
+}
+
+a:hover {
+    color: #f58025 !important
+}
+
+.header-menu-btn .bit-icon {
+    color: #f58025 !important
+}
+
+.font-size-8 {
+    font-size: .8rem !important
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    direction: ltr !important
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    direction: ltr !important;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    direction: ltr !important;
+}
+
+/****************************************/
+/*======>override bootstrap <===========*/
+/****************************************/
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #f58025 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #f580257a !important;
+}
+
+
+/****************************************/
+/*======>override bit css <===========*/
+/****************************************/
+
+.bit-nav-sel {
+    border-left: calc(var(--bit-spa-scaling-factor)*.375) var(--bit-shp-brd-style) #f58025 !important;
+}
+
+.bit-prs-imc {
+    background-color: #f58025 !important;
+    color: white;
+}
+
+.bit-prs-ptx {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    .bit-prs-ptx:hover {
+        color: #f58025 !important;
     }

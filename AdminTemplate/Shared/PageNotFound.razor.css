@@ -1,0 +1,34 @@
+.main {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center
+}
+
+.title {
+    font-weight: 600;
+    font-size: 7.5rem;
+    line-height: 10.5rem;
+    color: #fff
+}
+
+@media screen and (max-width: 120em) {
+    .title {
+        font-size: 6.25rem
+    }
+}
+
+.description {
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #fff
+}
+
+@media screen and (max-width: 120em) {
+    .description {
+        font-size: 1rem;
+        line-height: 1.5rem
+    }
+}
+/*# sourceMappingURL=PageNotFound.razor.css.map */

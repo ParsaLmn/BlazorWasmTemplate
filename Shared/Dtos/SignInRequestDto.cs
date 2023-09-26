@@ -11,7 +11,6 @@ namespace Shared.Dtos
     public class SignInRequestDto
     {
         [Required]
-
         public string? UserName { get; set; }
 
         [Required]

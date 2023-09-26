@@ -1,0 +1,312 @@
+@font-face {
+    font-family: "IRANSansDNF";
+    src: url(fonts/iransans/IRANSansDNFaNum.ttf);
+    src: url(fonts/iransans/IRANSansDNFaNum.woff2)
+}
+
+@media screen and (max-width: 999px) {
+    .main-header {
+        position: absolute
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .main-header {
+        position: fixed
+    }
+}
+
+.main-header {
+    top: 0;
+    z-index: 1100;
+    font-family: "IRANSansDNF";
+    backdrop-filter: blur(20px);
+    width: calc(100% - 206px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 0.0625rem solid #faf9f8;
+    box-shadow: inset 0px -1px 1px #e7ebf0;
+    padding-top: var(--bit-status-bar-height);
+    background-color: rgba(255,255,255,.72)
+}
+
+@media screen and (max-width: 75em) {
+    .main-header {
+        width: 100%
+    }
+}
+
+.bit-ios .main-header {
+    padding-top: env(safe-area-inset-top)
+}
+
+.header-main-container {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 3rem;
+    max-width: 88.5rem;
+    box-sizing: border-box
+}
+
+@media screen and (min-width: 48.0625em)and (max-width: 75em) {
+    .header-main-container {
+        padding: 0 1.5rem;
+        max-width: 63rem
+    }
+}
+
+@media screen and (max-width: 48em) {
+    .header-main-container {
+        padding: 0 1rem;
+        max-width: 35.75rem
+    }
+}
+
+.header-content-container {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%
+}
+
+.header-logo {
+    width: 1.875rem;
+    height: 1.25rem;
+    background-image: url("images/bit-logo.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    margin-right: 1.5rem
+}
+
+@media screen and (min-width: 75.0625em) {
+    .header-logo {
+        display: none
+    }
+}
+
+@media screen and (max-width: 48em) {
+    ::deep .header-breadcrumb.bit-brc {
+        display: none
+    }
+}
+
+::deep .header-breadcrumb.bit-brc .item {
+    font-weight: 400;
+    font-size: 1rem
+}
+
+::deep .header-breadcrumb.bit-brc .bit-icon {
+    font-size: 0.875rem
+}
+
+::deep .header-breadcrumb.bit-brc .selected-item {
+    font-weight: 600
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 0.0625rem solid #deecf9;
+    color: #002a66;
+    font-size: 0.75rem
+}
+
+.user-img {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%
+}
+
+.user-name {
+    margin-left: 0.25rem;
+    font-weight: 400;
+    font-size: 0.625rem;
+    line-height: 0.75rem;
+    color: #323130
+}
+
+@media screen and (max-width: 48em) {
+    .user-name {
+        display: none
+    }
+}
+
+.chevron-bottom-icon {
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url("images/icons/chevron-bottom-icon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 0.25rem
+}
+
+@media screen and (max-width: 48em) {
+    .chevron-bottom-icon {
+        display: none
+    }
+}
+
+.chevron-up-icon {
+    transform: rotate(180deg)
+}
+
+::deep .header-menu-btn {
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    margin-right: 1.5rem;
+    border-radius: 50%;
+    background-color: #fff
+}
+
+    ::deep .header-menu-btn .bit-icon {
+        font-size: 0.875rem;
+        color: #0078d4
+    }
+
+    ::deep .header-menu-btn:hover {
+        background-color: #fff
+    }
+
+@media screen and (min-width: 75.0625em) {
+    ::deep .header-menu-btn {
+        display: none
+    }
+}
+
+.header-drp-wrapper {
+    position: absolute;
+    right: 0;
+    top: 2.6875rem;
+    right: -30%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 12.5rem;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+    background: #e6f1ff;
+    border-radius: 0.125rem;
+    cursor: default;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none
+}
+
+.user-info-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 7rem;
+    padding: 0 0.125rem;
+    box-sizing: border-box;
+    border-bottom: 0.0625rem solid #faf9f8
+}
+
+    .user-info-container .img-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        border: 0.125rem solid #faf9f8;
+        color: #002a66;
+        font-size: 0.875rem;
+        margin-right: 1.125rem
+    }
+
+    .user-info-container .user-img {
+        width: 3rem;
+        height: 3rem;
+        border: 0.0625rem solid #faf9f8;
+        border-radius: 50%
+    }
+
+    .user-info-container .user-name {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start
+    }
+
+    .user-info-container .full-name {
+        font-weight: 400;
+        font-size: 0.625rem;
+        line-height: 0.75rem;
+        color: #a19f9d;
+        margin-bottom: 0.25rem
+    }
+
+    .user-info-container .email {
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: #323130
+    }
+
+::deep .edit-profile-btn {
+    color: #323130
+}
+
+    ::deep .edit-profile-btn span i {
+        color: #323130
+    }
+
+    ::deep .edit-profile-btn:hover span i {
+        color: #323130
+    }
+
+::deep .sign-out-btn {
+    color: #d83b01
+}
+
+    ::deep .sign-out-btn span i {
+        color: #d83b01
+    }
+
+    ::deep .sign-out-btn:hover span i {
+        color: #d83b01
+    }
+
+::deep .bit-brc-items-wrapper .bit-brc-itm {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem
+}
+
+::deep .bit-brc-items-wrapper .bit-brc-lst-itm {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem
+}
+
+::deep .bit-brc-items-wrapper .bit-icon {
+    font-size: 0.75rem !important
+}
+
+@media screen and (max-width: 48em) {
+    ::deep .bit-brc-items-wrapper {
+        display: none
+    }
+}
+/*# sourceMappingURL=Header.razor.css.map */

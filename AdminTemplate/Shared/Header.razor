@@ -1,0 +1,46 @@
+﻿@using BlazorTemplate.Components;
+@inherits AppComponentBase
+
+<header class="main-header border-0 bg-white">
+    <div class="header-main-container">
+        <div class="header-content-container">
+            <button class="header-menu-btn" @onclick="ToggleMenu"><BitIcon IconName="@BitIconName.CollapseMenu" AriaLabel="bus" /></button>
+            <a class="header-logo" style="background-image:unset;width:32px;height:32px" href="/" aria-label="Homepage">
+                <img class="h-100" src="/images/avatar.png" aria-label="razy-logo" alt="razy-logo" />
+            </a>
+        </div>
+
+        <div class="header-content-container" style="cursor: pointer" @onclick=@ToggleHeaderDropdown>
+            <BitPersona ImageUrl="@_profileImageUrl"
+                        Size=@BitPersonaSize.Size32
+                        Text="@_user.UserName"
+                        Presence="BitPersonaPresenceStatus.Online" />
+            <div class="chevron-bottom-icon @(_isHeaderDrpDownOpen ? "chevron-up-icon" : null)"></div>
+
+            @if (_isHeaderDrpDownOpen)
+            {
+                <div class="header-drp-overlay"></div>
+
+                <section class="header-drp-wrapper shadow-sm" @onclick:stopPropagation="true">
+                    <div class="user-info-container">
+                        <BitPersona ImageUrl="@_profileImageUrl"
+                                    Size="@BitPersonaSize.Size48"
+                                    Text="@_user.UserName"
+                                    SecondaryText="@_user.FullName"
+                                    Presence="BitPersonaPresenceStatus.Online" />
+                    </div>
+
+                    <BitActionButton Class="edit-profile-btn" IconName="BitIconName.Edit" AriaLabel="EditProfile">
+                        ویرایش پروفایل
+                    </BitActionButton>
+
+                    <BitActionButton Class="sign-out-btn" IconName="BitIconName.OutOfOffice" AriaLabel="SignOut" OnClick="OpenSignOutModal">
+                        خروج
+                    </BitActionButton>
+                </section>
+            }
+        </div>
+    </div>
+</header>
+
+<SignOutConfirmModal @bind-IsOpen="_isSignOutModalOpen"></SignOutConfirmModal>
