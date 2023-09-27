@@ -1,0 +1,62 @@
+.main-container {
+    display: flex;
+    width: 35rem;
+    align-items: center;
+    box-sizing: border-box;
+    flex-flow: column nowrap;
+    background-color: #fff;
+    justify-content: flex-start;
+    padding: 1rem 1.5rem
+}
+
+.bit-ios .main-container {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom))
+}
+
+@media screen and (max-width: 48em) {
+    .main-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0.5rem 0.5rem 0 0
+    }
+}
+
+.header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1.25rem
+}
+
+.title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: #201f1e
+}
+
+.body {
+    width: 100%;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #605e5c;
+    margin-bottom: 1rem
+}
+
+.btn-group {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center
+}
+
+::deep .bit-mdl-container {
+    min-height: unset
+}
+/*# sourceMappingURL=SignOutConfirmModal.razor.css.map */

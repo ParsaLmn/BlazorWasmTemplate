@@ -18,7 +18,8 @@
     padding-bottom: 1.5rem;
     max-width: 12.875rem;
     justify-content: space-between;
-    padding-top: var(--bit-status-bar-height)
+    padding-top: var(--bit-status-bar-height);
+    transition: 0.3s !important;
 }
 
 .bit-ios .nav-menu {
@@ -36,12 +37,14 @@
 }
 
 .nav-menu--closed {
-    display: none
+    /*display: none;*/
+    width: 0px;
 }
 
 @media screen and (min-width: 75.0625em) {
     .nav-menu--closed {
-        display: flex
+        /*display: flex*/
+        width: 12.875rem;
     }
 }
 

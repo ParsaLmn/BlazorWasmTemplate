@@ -94,6 +94,7 @@ html, body, #app-container {
     right: 0;
     justify-content: center;
 }
+
 select {
     cursor: pointer !important
 }
@@ -116,36 +117,56 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     overflow-y: auto
 }
 
-.bit-brc-itm {
-    font-size: unset !important
-}
-
 .bg-razy {
     --bs-bg-opacity: 1;
-    background-color: #f58025 !important
+    background-color: #f58025 !important;
+}
+
+.bg-razyBlue {
+    --bs-bg-opacity: 1;
+    background-color: #122147 !important;
 }
 
 .bg-lightGray {
     --bs-bg-opacity: 1;
-    background-color: #efefef !important
+    background-color: #EFEFEF !important;
+}
+
+.bg-lightBlue {
+    --bs-bg-opacity: 1;
+    background-color: #e7f1ff !important;
 }
 
 .text-razy {
     --bs-text-opacity: 1;
-    color: #f58025 !important
+    color: #f58025 !important;
+}
+
+.text-razyBlue {
+    --bs-text-opacity: 1;
+    color: #122147 !important;
 }
 
 .text-lightGray {
     --bs-text-opacity: 1;
-    color: #efefef !important
+    color: #EFEFEF !important;
+}
+
+.text-lightBlue {
+    --bs-text-opacity: 1;
+    color: #e7f1ff !important;
 }
 
 .text-hover-razy:hover {
-    color: #f58025 !important
+    color: #f58025 !important;
 }
 
 .text-hover-lightGray:hover {
-    color: #efefef !important
+    color: #EFEFEF !important;
+}
+
+.text-hover-lightBlue:hover {
+    color: #e7f1ff !important;
 }
 
 a:hover {
@@ -154,10 +175,6 @@ a:hover {
 
 .header-menu-btn .bit-icon {
     color: #f58025 !important
-}
-
-.font-size-8 {
-    font-size: .8rem !important
 }
 
 input[type=number] {
@@ -175,6 +192,37 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
     direction: ltr !important;
+}
+
+.cursor-pointer {
+    cursor: pointer
+}
+
+.fs-08 {
+    font-size: 0.8em
+}
+
+.fs-09 {
+    font-size: 0.9em
+}
+
+.fs-07 {
+    font-size: 0.7em
+}
+
+.fs-06 {
+    font-size: 0.6em
+}
+
+.fs-1 {
+    font-size: 1em
+}
+.shadow-top {
+    box-shadow: 0 -0.5rem 1rem rgba(0,0,0,.15) !important
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 1px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.3) !important;
 }
 
 /****************************************/
@@ -211,3 +259,7 @@ input[type=number] {
     .bit-prs-ptx:hover {
         color: #f58025 !important;
     }
+
+.bit-brc-itm {
+    font-size: unset !important
+}
