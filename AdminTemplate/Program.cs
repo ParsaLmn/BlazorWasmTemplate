@@ -29,7 +29,11 @@ builder.Services.AddScoped(sp => (AppAuthenticationStateProvider)sp.GetRequiredS
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IAuthTokenProvider, AuthTokenProvider>();
 builder.Services.AddScoped<IWebServiceClient, WebServiceClient>();
+
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddLocalization();
+var host = builder.Build();
+await host.SetDefaultCulture();
+await host.RunAsync();
 
 await builder.Build().RunAsync();

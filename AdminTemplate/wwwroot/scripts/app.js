@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 var App = /** @class */ (function () {
     function App() {
     }
@@ -27,3 +27,20 @@ var App = /** @class */ (function () {
     };
     return App;
 }());
+
+function getBlazorCulture() {
+    return localStorage['BlazorCulture'];
+}
+function setBlazorCulture(value) {
+    let text;
+    if (value == "fa-IR") {
+        text = "rtl";
+    }
+    else if (value == "en-US") {
+        text = "ltr";
+    }
+    var element = document.getElementsByTagName("html");
+    //debugger;
+    //element.attr("dir", text)
+    localStorage['BlazorCulture'] = value;
+}

@@ -1,0 +1,14 @@
+﻿<select class="form-control" @bind="Culture">
+    @foreach (var culture in cultures)
+    {
+        @if (culture.ToString() == "fa-IR")
+        {
+            text = "فارسی";
+        }
+        else if (culture.ToString() == "en-US")
+        {
+            text = "English";
+        }
+        <option value="@culture">@text</option>
+    }
+</select>
