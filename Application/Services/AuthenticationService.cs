@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces;
 using Blazored.LocalStorage;
 using Shared.Dtos;
-using Shared.Model;
+//using Shared.Model;
 using System.Net.Http;
 using System.Net.Http.Json;
 
@@ -13,11 +13,12 @@ namespace Application.Services
         private ILocalStorageService _localStorageService = default!;
         private AppAuthenticationStateProvider _authenticationStateProvider = default!;
 
-        public AuthenticationService(IHttpClientFactory httpClientFactory, ILocalStorageService localStorageService, AppAuthenticationStateProvider authenticationStateProvider)
+        public AuthenticationService(ILocalStorageService localStorageService,
+            AppAuthenticationStateProvider authenticationStateProvider, HttpClient httpClient)
         {
-            _httpClient = httpClientFactory.CreateClient(AppConstants.FirstHttpClient);
             _localStorageService = localStorageService;
             _authenticationStateProvider = authenticationStateProvider;
+            _httpClient = httpClient;
         }
 
         public async Task SignIn(SignInRequestDto dto)

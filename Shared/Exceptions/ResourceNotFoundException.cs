@@ -1,0 +1,42 @@
+﻿using Microsoft.Extensions.Localization;
+using Shared.Resoutces;
+using System.Net;
+using System.Runtime.Serialization;
+
+namespace Shared.Exceptions;
+
+[Serializable]
+public class ResourceNotFoundException : RestException
+{
+    public ResourceNotFoundException()
+        : base(nameof(General.ResourceNotFoundException))
+    {
+    }
+
+    public ResourceNotFoundException(string message)
+        : base(message)
+    {
+    }
+
+    public ResourceNotFoundException(string message, Exception? innerException)
+        : base(message, innerException)
+    {
+    }
+
+    public ResourceNotFoundException(LocalizedString message)
+        : base(message)
+    {
+    }
+
+    public ResourceNotFoundException(LocalizedString message, Exception? innerException)
+        : base(message, innerException)
+    {
+    }
+
+    protected ResourceNotFoundException(SerializationInfo info, StreamingContext context)
+        : base(info, context)
+    {
+    }
+
+    public override HttpStatusCode StatusCode => HttpStatusCode.NotFound;
+}

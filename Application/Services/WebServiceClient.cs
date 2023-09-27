@@ -1,5 +1,4 @@
 ﻿using Application.Interfaces;
-using Shared.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +11,9 @@ namespace Application.Services
     {
         private readonly HttpClient httpClient;
 
-        public WebServiceClient(IHttpClientFactory httpClientFactory)
+        public WebServiceClient( HttpClient httpClient)
         {
-            httpClient = httpClientFactory.CreateClient(AppConstants.FirstHttpClient);
+            this.httpClient = httpClient;
         }
     }
 }

@@ -61,11 +61,29 @@ namespace Shared.Resoutces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bad request.
+        /// </summary>
+        public static string BadRequestException {
+            get {
+                return ResourceManager.GetString("BadRequestException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string CloseBtn {
             get {
                 return ResourceManager.GetString("CloseBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Conflic happened.
+        /// </summary>
+        public static string ConflicException {
+            get {
+                return ResourceManager.GetString("ConflicException", resourceCulture);
             }
         }
         
@@ -79,11 +97,29 @@ namespace Shared.Resoutces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit profile.
+        /// </summary>
+        public static string EditprofileTitle {
+            get {
+                return ResourceManager.GetString("EditprofileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 404.
         /// </summary>
         public static string Error404 {
             get {
                 return ResourceManager.GetString("Error404", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forbidden request.
+        /// </summary>
+        public static string ForbiddenException {
+            get {
+                return ResourceManager.GetString("ForbiddenException", resourceCulture);
             }
         }
         
@@ -214,6 +250,24 @@ namespace Shared.Resoutces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Resource Not Found.
+        /// </summary>
+        public static string ResourceNotFoundException {
+            get {
+                return ResourceManager.GetString("ResourceNotFoundException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An exception happened.
+        /// </summary>
+        public static string RestException {
+            get {
+                return ResourceManager.GetString("RestException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Signin.
         /// </summary>
         public static string SigninBtn {
@@ -255,6 +309,33 @@ namespace Shared.Resoutces {
         public static string SignoutTitle {
             get {
                 return ResourceManager.GetString("SignoutTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TooMany requests.
+        /// </summary>
+        public static string TooManyRequestsExceptions {
+            get {
+                return ResourceManager.GetString("TooManyRequestsExceptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unauthorized.
+        /// </summary>
+        public static string UnauthorizedException {
+            get {
+                return ResourceManager.GetString("UnauthorizedException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An exception happened.
+        /// </summary>
+        public static string UnknownException {
+            get {
+                return ResourceManager.GetString("UnknownException", resourceCulture);
             }
         }
         

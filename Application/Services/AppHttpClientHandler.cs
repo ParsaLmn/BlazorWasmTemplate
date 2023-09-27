@@ -1,11 +1,14 @@
 ﻿using Application.Interfaces;
 using Blazored.LocalStorage;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Localization;
+using Shared.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +16,7 @@ namespace Application.Services
 {
     public class AppHttpClientHandler : HttpClientHandler
     {
-         private IAuthTokenProvider _tokenProvider = default!;
+        private IAuthTokenProvider _tokenProvider = default!;
 
         public AppHttpClientHandler(IAuthTokenProvider tokenProvider)
         {
@@ -32,10 +35,41 @@ namespace Application.Services
             }
             var response = await base.SendAsync(request, cancellationToken);
 
-            //if (response.StatusCode is HttpStatusCode.Unauthorized)
-            //{
-            //    throw new UnauthorizedException();
-            //}
+            var mesg = await response.Content.ReadAsStringAsync();
+
+            if (response.StatusCode is HttpStatusCode.Unauthorized)
+            {
+                throw new UnauthorizedException("Unauthorized");
+            }
+            if (response.StatusCode is HttpStatusCode.BadRequest)
+            {
+                throw new BadRequestException(string.IsNullOrEmpty(mesg) ? "اطلاعات ورودی نامعتبر" : mesg);
+            }
+            if (response.IsSuccessStatusCode is false && response.Content.Headers.ContentType?.MediaType?.Contains("application/json", StringComparison.InvariantCultureIgnoreCase) is true)
+            {
+                if (response.Headers.TryGetValues("Request-ID", out IEnumerable<string>? values) && values is not null && values.Any())
+                {
+                    RestErrorInfo restError =  new();
+
+                    Type exceptionType = typeof(RestErrorInfo).Assembly.GetType(restError.ExceptionType ?? string.Empty) ?? typeof(UnknownException);
+
+                    List<object> args = new()
+                {
+                    typeof(KnownException).IsAssignableFrom(exceptionType)
+                        ? new LocalizedString(restError.Key ?? string.Empty, restError.Message ?? string.Empty)
+                        : restError.Message ?? string.Empty
+                };
+
+                    if (exceptionType == typeof(ResourceValidationException))
+                    {
+                        args.Add(restError.Payload);
+                    }
+
+                    throw (Exception)(Activator.CreateInstance(exceptionType, args.ToArray()) ?? new Exception());
+                }
+            }
+
+            response.EnsureSuccessStatusCode();
 
             return response;
         }

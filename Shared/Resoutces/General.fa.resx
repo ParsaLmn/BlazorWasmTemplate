@@ -117,14 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BadRequestException" xml:space="preserve">
+    <value>اطلاعات ورودی نا معتبر</value>
+  </data>
   <data name="CloseBtn" xml:space="preserve">
     <value>بستن</value>
+  </data>
+  <data name="ConflicException" xml:space="preserve">
+    <value>خطای Conflic رخ داده است</value>
   </data>
   <data name="EditprofileBtn" xml:space="preserve">
     <value>ویرایش پروفایل</value>
   </data>
+  <data name="EditprofileTitle" xml:space="preserve">
+    <value>ویرایش پروفایل</value>
+  </data>
   <data name="Error404" xml:space="preserve">
     <value>404</value>
+  </data>
+  <data name="ForbiddenException" xml:space="preserve">
+    <value>دسترسی ممنوع است</value>
   </data>
   <data name="HomeBtn" xml:space="preserve">
     <value>خانه</value>
@@ -168,6 +180,12 @@
   <data name="ReceivingInformation" xml:space="preserve">
     <value>درحال دریافت اطلاعات...</value>
   </data>
+  <data name="ResourceNotFoundException" xml:space="preserve">
+    <value>منبع اطلاعات یافت نشد</value>
+  </data>
+  <data name="RestException" xml:space="preserve">
+    <value>خطای در انجام عملیات</value>
+  </data>
   <data name="SigninBtn" xml:space="preserve">
     <value>ورود</value>
   </data>
@@ -182,6 +200,15 @@
   </data>
   <data name="SignoutTitle" xml:space="preserve">
     <value>خروج</value>
+  </data>
+  <data name="TooManyRequestsExceptions" xml:space="preserve">
+    <value>درخواست بیش از حد مجاز</value>
+  </data>
+  <data name="UnauthorizedException" xml:space="preserve">
+    <value>خطای احراز هویت</value>
+  </data>
+  <data name="UnknownException" xml:space="preserve">
+    <value>خطای در انجام عملیات</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>نام کاربری</value>

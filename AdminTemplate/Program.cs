@@ -5,24 +5,17 @@ using BlazorTemplate;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Shared.Model;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddHttpClient(AppConstants.FirstHttpClient, (provider, client) =>
-{
-    var configuration = provider.GetRequiredService<IConfiguration>();
-    ApiOptions apiOption = new();
-    builder.Configuration.GetSection(ApiOptions.ApiName).Bind(apiOption);
+string baseAddress = builder.Configuration.GetValue<string>("BaseUrl");
 
-    client.BaseAddress = new Uri(apiOption.BaseAddress);
-});
+builder.Services.AddScoped(sp => new HttpClient(sp.GetRequiredService<AppHttpClientHandler>()) { BaseAddress = new Uri(baseAddress) });
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddScoped<AppHttpClientHandler>();
 
-builder.Services.AddTransient<AppHttpClientHandler>();
 builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<AuthenticationStateProvider, AppAuthenticationStateProvider>();
 builder.Services.AddScoped(sp => (AppAuthenticationStateProvider)sp.GetRequiredService<AuthenticationStateProvider>());

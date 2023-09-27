@@ -117,14 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BadRequestException" xml:space="preserve">
+    <value>Bad request</value>
+  </data>
   <data name="CloseBtn" xml:space="preserve">
     <value>Close</value>
+  </data>
+  <data name="ConflicException" xml:space="preserve">
+    <value>Conflic happened</value>
   </data>
   <data name="EditprofileBtn" xml:space="preserve">
     <value>Editprofile</value>
   </data>
+  <data name="EditprofileTitle" xml:space="preserve">
+    <value>Edit profile</value>
+  </data>
   <data name="Error404" xml:space="preserve">
     <value>404</value>
+  </data>
+  <data name="ForbiddenException" xml:space="preserve">
+    <value>Forbidden request</value>
   </data>
   <data name="HomeBtn" xml:space="preserve">
     <value>Home</value>
@@ -168,6 +180,12 @@
   <data name="ReceivingInformation" xml:space="preserve">
     <value>Receiving information...</value>
   </data>
+  <data name="ResourceNotFoundException" xml:space="preserve">
+    <value>Resource Not Found</value>
+  </data>
+  <data name="RestException" xml:space="preserve">
+    <value>An exception happened</value>
+  </data>
   <data name="SigninBtn" xml:space="preserve">
     <value>Signin</value>
   </data>
@@ -182,6 +200,15 @@
   </data>
   <data name="SignoutTitle" xml:space="preserve">
     <value>Signout</value>
+  </data>
+  <data name="TooManyRequestsExceptions" xml:space="preserve">
+    <value>TooMany requests</value>
+  </data>
+  <data name="UnauthorizedException" xml:space="preserve">
+    <value>Unauthorized</value>
+  </data>
+  <data name="UnknownException" xml:space="preserve">
+    <value>An exception happened</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>UserName</value>
