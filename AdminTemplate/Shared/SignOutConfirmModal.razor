@@ -4,8 +4,9 @@
 <BitModal @bind-IsOpen="IsOpen">
     <div class="main-container">
         <div class="header">
-            <span class="title">@Localizer[nameof(General.SignoutTitle)]</span>
-            <BitIconButton Class="bg-danger" OnClick="CloseModal" IconName="BitIconName.ChromeClose" Title="@Localizer[nameof(General.CloseBtn)]" />
+            <span class="title">@Localizer[nameof(General.SignoutTitle)]</span>         
+            <button class="btn border-0 bg-transparent shadow-none" @onclick="CloseModal"
+            title="@Localizer[nameof(General.CloseBtn)]"><BitIcon IconName="@BitIconName.ChromeClose" /></button>
         </div>
         <div class="body">@Localizer[nameof(General.SignoutMessage)]</div>
         <div class="btn-group">

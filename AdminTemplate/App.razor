@@ -1,4 +1,6 @@
-﻿<CascadingAuthenticationState>
+﻿@inject IStringLocalizer<General> Localizer
+
+<CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
@@ -6,7 +8,7 @@
                     <NotAuthorizedComponent />
                 </NotAuthorized>
                 <Authorizing>
-                    <LoadingComponent Text="درحال دریافت اطلاعات..." />
+                    <LoadingComponent Text="@Localizer[nameof(General.ReceivingInformation)]" />
                 </Authorizing>
             </AuthorizeRouteView>
         </Found>
@@ -14,7 +16,7 @@
             <PageNotFound />
         </NotFound>
         <Navigating>
-            <LoadingComponent Text="درحال دریافت اطلاعات..." />
+            <LoadingComponent Text="@Localizer[nameof(General.ReceivingInformation)]" />
         </Navigating>
     </Router>
 </CascadingAuthenticationState>
