@@ -55,6 +55,10 @@ public partial class Header : IDisposable
         await JsRuntime.SetBodyOverflow(true);
         _isSignOutModalOpen = true;
     }
+    private async Task EditProfilePage()
+    {
+        NavigationManager.NavigateTo("/editProfile");
+    }
 
     private void ToggleHeaderDropdown()
     {

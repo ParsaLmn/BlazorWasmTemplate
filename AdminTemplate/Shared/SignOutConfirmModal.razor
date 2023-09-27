@@ -4,17 +4,17 @@
 <BitModal @bind-IsOpen="IsOpen">
     <div class="main-container">
         <div class="header">
-            <span class="title">خروج</span>
-            <BitIconButton OnClick="CloseModal" IconName="BitIconName.ChromeClose" Title="خروج از حساب کاربری" />
+            <span class="title">@Localizer[nameof(General.SignoutTitle)]</span>
+            <BitIconButton Class="bg-danger" OnClick="CloseModal" IconName="BitIconName.ChromeClose" Title="@Localizer[nameof(General.CloseBtn)]" />
         </div>
-        <div class="body">مطمئن هستید که میخواهید از حساب کاربری خود خارج شوید؟</div>
+        <div class="body">@Localizer[nameof(General.SignoutMessage)]</div>
         <div class="btn-group">
             <div class="mx-1">
-                <BitButton Class="bg-razy border-0" Style="margin-right: 0.5rem" OnClick="SignOut">بله</BitButton>
+                <BitButton Class="bg-razy border-0" Style="margin-right: 0.5rem" OnClick="SignOut">@Localizer[nameof(General.YesBtn)]</BitButton>
             </div>
 
             <div class="mx-1">
-                <BitButton Class="border-danger text-danger bg-white" OnClick="CloseModal">خیر</BitButton>
+                <BitButton Class="border-danger text-danger bg-white" OnClick="CloseModal">@Localizer[nameof(General.NoBtn)]</BitButton>
             </div>
         </div>
     </div>

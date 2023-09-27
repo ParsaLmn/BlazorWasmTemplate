@@ -1,6 +1,9 @@
-﻿
+﻿@using BlazorTemplate.Components;
+@inherits AppComponentBase
+
+<PageTitle>@nameof(General.PageNotFoundTitle)</PageTitle>
 <div class="main">
-    <h1 class="title text-dark">404</h1>
-    <div class="description text-dark">صفحه‌ای که دنبال آن بودید پیدا نشد! </div>
-    <a href="/">خانه</a>
+    <h1 class="title text-dark">@Localizer[nameof(General.Error404)]</h1>
+    <div class="description text-dark">@Localizer[nameof(General.PageNotFoundMessage)]</div>
+    <a href="/">@Localizer[nameof(General.HomeBtn)]</a>
 </div>

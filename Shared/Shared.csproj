@@ -7,10 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Attributes\" />
     <Folder Include="Enums\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Resoutces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resoutces\General.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>General.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resoutces\General.fa.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resoutces\General.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>General.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

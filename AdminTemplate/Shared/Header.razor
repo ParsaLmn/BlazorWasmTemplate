@@ -5,8 +5,8 @@
     <div class="header-main-container">
         <div class="header-content-container">
             <button class="header-menu-btn" @onclick="ToggleMenu"><BitIcon IconName="@BitIconName.CollapseMenu" AriaLabel="bus" /></button>
-            <a class="header-logo" style="background-image:unset;width:32px;height:32px" href="/" aria-label="Homepage">
-                <img class="h-100" src="/images/avatar.png" aria-label="razy-logo" alt="razy-logo" />
+            <a class="header-logo" style="background-image:unset;width:32px;height:32px" href="/" aria-label="@Localizer[nameof(General.HomePageTitle)]">
+                <img class="h-100" src="/images/avatar.png" aria-label="@Localizer[nameof(General.HomeBtn)]" alt="@Localizer[nameof(General.LogoAlt)]" />
             </a>
         </div>
 
@@ -30,12 +30,12 @@
                                     Presence="BitPersonaPresenceStatus.Online" />
                     </div>
 
-                    <BitActionButton Class="edit-profile-btn" IconName="BitIconName.Edit" AriaLabel="EditProfile">
-                        ویرایش پروفایل
+                    <BitActionButton Class="edit-profile-btn" IconName="BitIconName.Edit" AriaLabel="EditProfile" OnClick="EditProfilePage">
+                        @Localizer[nameof(General.EditprofileBtn)]
                     </BitActionButton>
 
                     <BitActionButton Class="sign-out-btn" IconName="BitIconName.OutOfOffice" AriaLabel="SignOut" OnClick="OpenSignOutModal">
-                        خروج
+                        @Localizer[nameof(General.SignoutBtn)]
                     </BitActionButton>
                 </section>
             }

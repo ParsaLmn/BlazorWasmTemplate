@@ -1,16 +1,9 @@
-﻿@*<div class="d-flex flex-column align-items-center">
-    <div style="color:@Color" class="@Class spinner-border" aria-hidden="true"></div>
-    @if (ShowText)
-    {
-        <label style="@TextStyle" role="status" class="mt-1">@Text</label>
-    }
-</div>*@
-
-<div class="loading-container">    
+﻿
+<div class="loading-container">
     <BitSpinner LabelPosition="BitLabelPosition.Bottom" Label="@Text" Size="BitSpinnerSize.Large"></BitSpinner>
 </div>
 
 @code {
     [Parameter]
-    public string Text { get; set; } = "Loading...";
+    public string Text { get; set; } = default!;
 }

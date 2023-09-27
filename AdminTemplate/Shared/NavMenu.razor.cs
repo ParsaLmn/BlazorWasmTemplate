@@ -34,14 +34,14 @@ public partial class NavMenu
             new BitNavItem
             {
                 Text = "Œ«‰Â",
-                IconName = BitIconName.Ticket,
+                IconName = BitIconName.Home,
                 Url = "/",
             }
             ,
            new BitNavItem
             {
                 Text = "‘„«—‰œÂ",
-                IconName = BitIconName.Ticket,
+                IconName = BitIconName.Count,
                 Url = "/counter",
             }
         };

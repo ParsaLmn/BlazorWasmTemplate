@@ -1,6 +1,8 @@
 ﻿@using BlazorTemplate.Components;
 @inherits AppComponentBase
 
+<PageTitle>@Localizer[nameof(General.NotAuthorizeTitle)]</PageTitle>
+
 <AuthorizeView>
-    <h2>شما به این قسمت دسترسی ندارید</h2>
+    <h2>@Localizer[nameof(General.NotAuthorizeMessage)]</h2>
 </AuthorizeView>

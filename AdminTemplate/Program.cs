@@ -30,6 +30,6 @@ builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IAuthTokenProvider, AuthTokenProvider>();
 builder.Services.AddScoped<IWebServiceClient, WebServiceClient>();
 builder.Services.AddBlazoredLocalStorage();
-
+builder.Services.AddLocalization();
 
 await builder.Build().RunAsync();
