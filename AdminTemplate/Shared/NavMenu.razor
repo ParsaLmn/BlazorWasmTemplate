@@ -9,7 +9,8 @@
 <section class="nav-menu @(IsMenuOpen ? null : "nav-menu--closed")">
     <div class="menu-content">
         <div class="menu-top-row text-center border-0" style="background-image:unset">
-            <img class="h-100" src="/images/avatar.png" aria-label="razy-logo" />
+            <img class="h-100" src="/images/avatar.png" alt="@Localizer[nameof(General.LogoAlt)]"
+                 aria-label="@Localizer[nameof(General.LogoAlt)]" />
         </div>
         <BitNav Items="_navItems"
                 Class="bit-nav-menu"
