@@ -1,6 +1,8 @@
 ﻿@page "/editProfile"
 @using BlazorTemplate.Components;
+@using Microsoft.AspNetCore.Authorization;
 @inherits AppComponentBase
+@attribute [Authorize]
 
 <PageTitle>@Localizer[nameof(General.EditprofileBtn)]</PageTitle>
 <h3>EditProfile</h3>
