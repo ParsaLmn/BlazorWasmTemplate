@@ -8,7 +8,7 @@
                     <NotAuthorizedComponent />
                 </NotAuthorized>
                 <Authorizing>
-                    <LoadingComponent Text="@Localizer[nameof(General.ReceivingInformation)]" />
+                    <LoadingComponent Class="pt-5" Text="@Localizer[nameof(General.ReceivingInformation)]" />
                 </Authorizing>
             </AuthorizeRouteView>
         </Found>
@@ -16,7 +16,7 @@
             <PageNotFound />
         </NotFound>
         <Navigating>
-            <LoadingComponent Text="@Localizer[nameof(General.ReceivingInformation)]" />
+            <LoadingComponent Class="pt-5" Text="@Localizer[nameof(General.ReceivingInformation)]" />
         </Navigating>
     </Router>
 </CascadingAuthenticationState>

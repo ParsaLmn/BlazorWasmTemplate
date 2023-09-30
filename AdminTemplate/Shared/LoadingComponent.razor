@@ -1,9 +1,13 @@
 ﻿
-<div class="loading-container">
-    <BitSpinner LabelPosition="BitLabelPosition.Bottom" Label="@Text" Size="BitSpinnerSize.Large"></BitSpinner>
+<div class="@Class">
+    <div class="loading-container">
+        <BitSpinner LabelPosition="BitLabelPosition.Bottom" Label="@Text" Size="BitSpinnerSize.Large"></BitSpinner>
+    </div>
 </div>
 
 @code {
     [Parameter]
     public string Text { get; set; } = default!;
+    [Parameter]
+    public string Class { get; set; } = default!;
 }

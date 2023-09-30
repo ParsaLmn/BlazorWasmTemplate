@@ -37,13 +37,11 @@
 }
 
 .nav-menu--closed {
-    /*display: none;*/
     width: 0px;
 }
 
 @media screen and (min-width: 75.0625em) {
     .nav-menu--closed {
-        /*display: flex*/
         width: 12.875rem;
     }
 }
