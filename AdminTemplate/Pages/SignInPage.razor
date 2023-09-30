@@ -5,8 +5,8 @@
 
 <PageTitle>ورود</PageTitle>
 
-<div class="page-container pt-5">
-    <section class="page-section">
+<div class="page-container">
+    <section class="page-section p-0 pb-5">
         <EditForm Model="_signInModel" OnValidSubmit="DoSignIn" class="form">
             <DataAnnotationsValidator />
 
@@ -15,18 +15,20 @@
                 <BitMessageBar MessageBarType="@_signInMessageType" OnDismiss="() => _signInMessage = null">@_signInMessage</BitMessageBar>
             }
 
-            <h2 class="form-title">ورود</h2>
+            <h2 class="form-title">@Localizer[nameof(General.SigninTitle)]</h2>
 
             <div class="form-input-container">
-            <label class="label label-control lable-custom">نام کاربری</label>
-            <InputText @bind-Value=_signInModel.UserName placeholder="0912121212" class="form-control" type="number" />
-            <ValidationMessage For="@(() => _signInModel.UserName)" />
+                <label class="label label-control lable-custom">@Localizer[nameof(General.UserName)]</label>
+                <InputText @bind-Value=_signInModel.UserName placeholder="@Localizer[nameof(General.UserNamePlaceHolder)]"
+                           class="form-control" type="number" />
+                <ValidationMessage For="@(() => _signInModel.UserName)" />
             </div>
 
             <div class="form-input-container">
-                <label class="label label-control lable-custom">رمز عبور</label>
+                <label class="label label-control lable-custom">@Localizer[nameof(General.Password)]</label>
                 <div style="position:relative">
-                    <InputText @bind-Value=_signInModel.Password placeholder="رمز عبور خودرا وارد کنید..." class="form-control" type="@_passInputType" />
+                    <InputText @bind-Value=_signInModel.Password placeholder="@Localizer[nameof(General.PasswordPlaceHolder)]"
+                               class="form-control" type="@_passInputType" />
                     <button type="button" style="position:absolute;left:1px;top:2px" @onclick="ShowPassword" class="border-0 bg-transparent py-1 px-2">
                         <BitIcon IconName="@ShowHidePass" AriaLabel="@ShowHidePass.ToString()" />
                     </button>
@@ -36,8 +38,8 @@
 
             <BitLoadingButton Class="bg-razy text-white border-0" IsLoading="_isLoading"
                               ButtonStyle="BitButtonStyle.Primary"
-                              Title="ورود"
-                              AriaLabel="ورود"
+                              Title="@Localizer[nameof(General.SigninBtn)]"
+                              AriaLabel="@Localizer[nameof(General.SigninTitle)]"
                               ButtonType="BitButtonType.Submit">
                 <span>ورود</span>
             </BitLoadingButton>
