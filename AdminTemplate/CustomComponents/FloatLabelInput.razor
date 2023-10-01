@@ -1,0 +1,16 @@
+﻿<div class="form-group @Class">
+    <label onclick="labelClick(this)" class="form-group-label @LabelClass">@Label</label>
+    <input onfocus="inputFocus(this)" onfocusout="inputFocusOut(this)"
+        class="form-control @InputClass" />
+</div>
+
+@code {
+    [Parameter]
+    public string Label { get; set; } = default!;
+    [Parameter]
+    public string Class { get; set; } = default!;
+    [Parameter]
+    public string InputClass { get; set; } = default!;
+    [Parameter]
+    public string LabelClass { get; set; } = default!;
+}

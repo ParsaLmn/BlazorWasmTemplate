@@ -1,11 +1,27 @@
 ﻿@page "/"
 @using BlazorTemplate.Components;
+@using BlazorTemplate.CustomComponents
 @using Microsoft.AspNetCore.Authorization;
 @inherits AppComponentBase
-@attribute [Authorize(Roles ="admin")]
+@attribute [Authorize(Roles = "admin")]
 
 <PageTitle>@Localizer[nameof(General.HomePageTitle)]</PageTitle>
 
 <h1>سلام</h1>
 
+<div class="row">
+    <div class="col">
+        <FloatLabelInput Label="نام" Class="my-2" InputClass="px-1 pt-2" />
 
+    </div>
+    <div class="col">
+        <FloatLabelInput Label="نام خانوادگی" Class="my-2" InputClass="px-1 pt-2" />
+
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <FloatLabelInput Label="کد ملی" Class="my-2" InputClass="px-1 pt-2" />
+
+    </div>
+</div>

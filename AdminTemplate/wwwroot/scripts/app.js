@@ -44,3 +44,19 @@ function setBlazorCulture(value) {
     //element.attr("dir", text)
     localStorage['BlazorCulture'] = value;
 }
+
+function labelClick(_label) {
+    let _input = _label.nextElementSibling;
+    _input.focus();
+}
+function inputFocus(_input) {
+    let _label = _input.previousElementSibling;
+    _label.classList.add("floated-label");
+}
+function inputFocusOut(_input) {
+    if (_input && _input.value) {
+        return;
+    }
+    let _label = _input.previousElementSibling;
+    _label.classList.remove("floated-label");
+}
