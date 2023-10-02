@@ -45,15 +45,15 @@ function setBlazorCulture(value) {
     localStorage['BlazorCulture'] = value;
 }
 
-function labelClick(_label) {
+function floatLabelClick(_label) {
     let _input = _label.nextElementSibling;
     _input.focus();
 }
-function inputFocus(_input) {
+function floatInputFocus(_input) {
     let _label = _input.previousElementSibling;
     _label.classList.add("floated-label");
 }
-function inputFocusOut(_input) {
+function floatInputFocusOut(_input) {
     if (_input && _input.value) {
         return;
     }
