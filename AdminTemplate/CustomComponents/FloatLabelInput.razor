@@ -1,13 +1,59 @@
-﻿<div class="form-group @Class">
+﻿@inject IJSRuntime JsRuntime
+
+<div class="form-group @Class">
     <label onclick="floatLabelClick(this)" class="form-group-label @LabelClass">@Label</label>
-    <input type="@InputType" onfocus="floatInputFocus(this)" onfocusout="floatInputFocusOut(this)"
-           class="form-control @InputClass" />
+
+    @if (InputType == "text" || InputType == "email" || InputType == "tel" || InputType == "password")
+    {
+        <input @bind-value="TextValue" type="@InputType" onfocus="floatInputFocus(this)" onfocusout="floatInputFocusOut(this)"
+               class="form-group-input form-control @InputClass" />
+    }
+    else if (InputType == "number")
+    {
+        <input @bind-value="NumberValue" type="@InputType" onfocus="floatInputFocus(this)" onfocusout="floatInputFocusOut(this)"
+               class="form-group-input form-control @InputClass" />
+    }
+    else
+    {
+        <small class="text-danger">Input type not support</small>
+    }
 </div>
 
 @code {
+    private string textValue;
+    [Parameter]
+    public string TextValue
+    {
+        get { return textValue; }
+        set
+        {
+            if (textValue == value) return;
+            textValue = value;
+            TextValueChanged.InvokeAsync(TextValue);
+        }
+    }
+    [Parameter]
+    public EventCallback<string> TextValueChanged { get; set; } = default!;
+
+    private int numberValue;
+    [Parameter]
+    public int NumberValue
+    {
+        get { return numberValue; }
+        set
+        {
+            if (numberValue == value) return;
+            numberValue = value;
+            NumberValueChanged.InvokeAsync(NumberValue);
+        }
+    }
+    [Parameter]
+    public EventCallback<int> NumberValueChanged { get; set; }
+
+
     [Parameter]
     public string InputType { get; set; } = "text";
-    [Parameter]
+    [Parameter, EditorRequired]
     public string Label { get; set; } = default!;
     [Parameter]
     public string Class { get; set; } = default!;
@@ -15,4 +61,12 @@
     public string InputClass { get; set; } = default!;
     [Parameter]
     public string LabelClass { get; set; } = default!;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+            await JsRuntime.InvokeVoidAsync("checkFloatInputOnload");
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
 }

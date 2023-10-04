@@ -11,10 +11,10 @@
 
 <div class="row">
     <div class="col">
-        <FloatLabelInput Label="نام" Class="my-2" InputClass="px-1 pt-2" />
+        <FloatLabelInput @bind-TextValue=Firstname InputType="text" Label="نام" Class="my-2" InputClass="px-1 pt-2" />
     </div>
     <div class="col">
-        <FloatLabelInput Label="نام خانوادگی" Class="my-2" InputClass="px-1 pt-2" />
+        <FloatLabelInput InputType="text" Label="نام خانوادگی" Class="my-2" InputClass="px-1 pt-2" />
     </div>
     <div class="col">
         <FloatLabelInput InputType="password" Label="رمز عبور" Class="my-2" InputClass="px-1 pt-2" />
@@ -22,6 +22,11 @@
 </div>
 <div class="row">
     <div class="col">
-        <FloatLabelInput Label="کد ملی" Class="my-2" InputClass="px-1 pt-2" />
+        <FloatLabelInput InputType="number" Label="کد ملی" Class="my-2" InputClass="px-1 pt-2" />
     </div>
 </div>
+
+@code {
+    public string Firstname { get; set; } = "parsa";
+
+}

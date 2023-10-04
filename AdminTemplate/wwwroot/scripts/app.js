@@ -60,3 +60,14 @@ function floatInputFocusOut(_input) {
     let _label = _input.previousElementSibling;
     _label.classList.remove("floated-label");
 }
+
+function checkFloatInputOnload() {
+    var inputs = document.getElementsByClassName("form-group-input");
+
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value) {
+            floatInputFocus(inputs[i]);
+            floatInputFocusOut(inputs[i]);
+        }
+    }
+}
