@@ -67,7 +67,6 @@ function checkFloatInputOnload() {
     for (var i = 0; i < inputs.length; i++) {
         if (inputs[i].value) {
             floatInputFocus(inputs[i]);
-            floatInputFocusOut(inputs[i]);
         }
     }
 }
