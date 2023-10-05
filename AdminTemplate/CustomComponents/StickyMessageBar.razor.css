@@ -1,0 +1,14 @@
+.notification {    
+    color: white;
+    padding: 15px;
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    transition: bottom 0.3s ease-in-out;
+    z-index: 999;
+}
+
+    .notification.show {
+        bottom: 0;
+    }

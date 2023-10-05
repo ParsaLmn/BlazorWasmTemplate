@@ -1,0 +1,24 @@
+﻿@inject IJSRuntime JsRuntime
+
+<div class="notification @Class" id="notification">
+    @Message
+</div>
+
+
+@code {
+    [Parameter, EditorRequired]
+    public string Message { get; set; } = default!;
+    [Parameter]
+    public string Class { get; set; }
+    [Parameter]
+    public int TimeOut { get; set; } = 5000;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JsRuntime.InvokeVoidAsync("showStickyMessageBar", TimeOut);
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}

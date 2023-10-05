@@ -70,3 +70,17 @@ function checkFloatInputOnload() {
         }
     }
 }
+
+//===========
+function showStickyMessageBar(timeout) {
+    var notification = document.getElementById("notification");
+    notification.classList.add("show");
+
+    setTimeout(() => {
+        hideStickyMessageBar();
+    }, timeout);
+}
+function hideStickyMessageBar() {
+    var notification = document.getElementById("notification");
+    notification.classList.remove("show");
+}
