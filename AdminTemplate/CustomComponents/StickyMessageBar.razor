@@ -1,24 +1,106 @@
-﻿@inject IJSRuntime JsRuntime
+﻿@implements IDisposable
 
-<div class="notification @Class" id="notification">
-    @Message
+<div class="notification shadow-top @Show @Class" id="@Id" @attributes="AdditionalAttributes">
+    @if (IsDismissable)
+    {
+        <span>
+            <button @onclick="HideStickyMessageBar" type="button"
+                    class="btn btn-sm bg-transparent shadow-none mx-3">
+                <BitIcon IconName="@BitIconName.ChromeClose" />
+            </button>
+        </span>
+    }
+    <span>
+        @Message
+    </span>
 </div>
 
 
 @code {
+
+    private Guid Id { get; set; } = Guid.NewGuid();
+
     [Parameter, EditorRequired]
     public string Message { get; set; } = default!;
+
     [Parameter]
-    public string Class { get; set; }
+    public string Class { get; set; } = "bg-light text-dark";
+
+    /// <summary>
+    /// Time in Milliseconds
+    /// </summary>
     [Parameter]
     public int TimeOut { get; set; } = 5000;
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    [Parameter]
+    public bool IsDismissable { get; set; } = true;
+
+    [Parameter]
+    public bool HasTimeout { get; set; } = true;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; } = default!;
+
+    [Parameter]
+    public EventCallback OnDismiss { get; set; }
+
+    string Show = "";
+    Timer showTimer;
+    Timer hideTimer;
+
+    protected override async Task OnInitializedAsync()
     {
-        if (firstRender)
+        ShowStickyMessageBar();
+
+        await base.OnInitializedAsync();
+
+        StateHasChanged();
+    }
+
+    private void ShowStickyMessageBar()
+    {
+
+        showTimer = new((_) =>
         {
-            await JsRuntime.InvokeVoidAsync("showStickyMessageBar", TimeOut);
-        }
-        await base.OnAfterRenderAsync(firstRender);
+            Show = "show";
+            StateHasChanged();
+        }, null, 200, 0);
+
+        if (!HasTimeout)
+            return;
+
+        if (TimeOut > 0)
+        { }
+        else
+            TimeOut = 500;
+
+        hideTimer = new((_) =>
+        {
+            if (!string.IsNullOrEmpty(Show))
+            {
+                HideStickyMessageBar();
+                StateHasChanged();
+            }
+        }, null, TimeOut, 0);
+    }
+
+    private void HideStickyMessageBar()
+    {
+        Show = "";
+        DisMissStickyMessageBar();
+    }
+
+    public void DisMissStickyMessageBar()
+    {
+        Timer test = new(async (_) =>
+          {
+              await OnDismiss.InvokeAsync();
+          }, null, 400, 0);
+    }
+
+    public void Dispose()
+    {
+        showTimer?.Dispose();
+        hideTimer?.Dispose();
     }
 }

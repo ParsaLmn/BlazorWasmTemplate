@@ -6,7 +6,7 @@
     left: 0;
     right: 0;
     transition: bottom 0.3s ease-in-out;
-    z-index: 999;
+    z-index: 1000;
 }
 
     .notification.show {

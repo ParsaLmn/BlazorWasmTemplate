@@ -12,6 +12,7 @@
 <div class="row">
     <div class="col">
         <FloatLabelInput @bind-TextValue=Firstname InputType="text" Label="نام" Class="my-2" InputClass="px-1 pt-2" />
+        <small>@Firstname</small>
     </div>
     <div class="col">
         <FloatLabelInput InputType="text" Label="نام خانوادگی" Class="my-2" InputClass="px-1 pt-2" />
@@ -26,23 +27,24 @@
     </div>
 </div>
 
-@if (_firstrender)
+
+@if (_show)
 {
-    <StickyMessageBar Message="لاگ این با موفقیت انجام شد" Class="bg-success" />
+    <StickyMessageBar IsDismissable=false Message="@text" Class="bg-success text-white" OnDismiss="()=>_show=false" />
 }
+
+<button class="btn btn-sm btn-primary" @onclick="test" type="button">test notification</button>
 
 @code {
     public string Firstname { get; set; } = "parsa";
 
-    bool _firstrender;
+    bool _show = false;
+    string text;
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    void test()
     {
-        if (firstRender)
-        {
-            _firstrender = firstRender;
-            StateHasChanged();
-            await base.OnAfterRenderAsync(firstRender);
-        }
+        _show = true;
+        text = "سلام کاربر عزیز";
+        StateHasChanged();
     }
 }
