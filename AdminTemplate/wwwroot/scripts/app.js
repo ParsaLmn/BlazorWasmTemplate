@@ -45,6 +45,12 @@ function setBlazorCulture(value) {
     localStorage['BlazorCulture'] = value;
 }
 
+
+
+//============================================================
+//====================custom js===============================
+//============================================================
+
 function floatLabelClick(_label) {
     let _input = _label.nextElementSibling;
     _input.focus();
@@ -70,3 +76,20 @@ function checkFloatInputOnload() {
         }
     }
 }
+
+//========>header hide on scroll<=========
+let prevScrollPos = window.pageYOffset;
+window.addEventListener('scroll', () => {
+    const currentScrollPos = window.pageYOffset;
+
+    if (prevScrollPos > currentScrollPos) {
+        // Scrolling up
+        document.querySelector('header').style.transform = 'translateY(0)';
+    } else {
+        // Scrolling down
+        document.querySelector('header').style.transform = 'translateY(-100%)';
+    }
+
+    prevScrollPos = currentScrollPos;
+});
+//========>header hide on scroll<=========

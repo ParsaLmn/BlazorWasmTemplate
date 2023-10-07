@@ -6,7 +6,10 @@
 
 @media screen and (max-width: 999px) {
     .main-header {
-        position: absolute
+        position: fixed
+
+        /*position: absolute*/
+        /*if want to header stay on top*/
     }
 }
 
@@ -26,7 +29,8 @@
     border-bottom: 0.0625rem solid #faf9f8;
     box-shadow: inset 0px -1px 1px #e7ebf0;
     padding-top: var(--bit-status-bar-height);
-    background-color: rgba(255,255,255,.72)
+    background-color: rgba(255,255,255,.72);
+    transition: transform 0.3s ease;
 }
 
 @media screen and (max-width: 75em) {
