@@ -10,11 +10,6 @@
         <EditForm Model="_signInModel" OnValidSubmit="DoSignIn" class="form">
             <DataAnnotationsValidator />
 
-            @if (string.IsNullOrEmpty(_signInMessage) is false)
-            {
-                <BitMessageBar MessageBarType="@_signInMessageType" OnDismiss="() => _signInMessage = null">@_signInMessage</BitMessageBar>
-            }
-
             <h2 class="form-title">@Localizer[nameof(General.SigninTitle)]</h2>
 
             <div class="form-input-container">
@@ -46,3 +41,8 @@
         </EditForm>
     </section>
 </div>
+
+@if (string.IsNullOrEmpty(_signInMessage) is false)
+{
+    <StickyMessageBar Class="bg-danger fs-08" IsDismissable=true HasTimeout=true Message="@_signInMessage" OnDismiss="() => _signInMessage = null" />
+}
