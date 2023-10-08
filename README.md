@@ -1,2 +1,6 @@
 # BlazorWasmTemplate
-Blazor WebAssembly Template
+Blazor WebAssembly Template With Built in Authentication , Culture support , Error handling...
+
+It is also based on Clean Architecture design.
+
+And some cool components such as FloatLabelInput , StickyMessageBar...
