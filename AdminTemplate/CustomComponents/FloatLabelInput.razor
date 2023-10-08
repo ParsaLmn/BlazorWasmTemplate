@@ -10,7 +10,7 @@
     }
     else if (InputType == "number")
     {
-        <input @ref="textInput" @bind-value="NumberValue" type="@InputType" onfocus="floatInputFocus(this)" @onfocusout="FloatInputFocusOut"
+        <input @ref="textInput" @bind-value="NumberValue" type="@InputType" @onfocus="FloatInputFocus" @onfocusout="FloatInputFocusOut"
                class="form-group-input form-control @InputClass" />
     }
     else
