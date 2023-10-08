@@ -51,31 +51,6 @@ function setBlazorCulture(value) {
 //====================custom js===============================
 //============================================================
 
-function floatLabelClick(_label) {
-    let _input = _label.nextElementSibling;
-    _input.focus();
-}
-function floatInputFocus(_input) {
-    let _label = _input.previousElementSibling;
-    _label.classList.add("floated-label");
-}
-function floatInputFocusOut(_input) {
-    if (_input && _input.value) {
-        return;
-    }
-    let _label = _input.previousElementSibling;
-    _label.classList.remove("floated-label");
-}
-
-function checkFloatInputOnload() {
-    var inputs = document.getElementsByClassName("form-group-input");
-
-    for (var i = 0; i < inputs.length; i++) {
-        if (inputs[i].value) {
-            floatInputFocus(inputs[i]);
-        }
-    }
-}
 
 //========>header hide on scroll<=========
 let prevScrollPos = window.pageYOffset;

@@ -1,16 +1,16 @@
 ﻿@inject IJSRuntime JsRuntime
 
 <div class="form-group @Class">
-    <label onclick="floatLabelClick(this)" class="form-group-label @LabelClass">@Label</label>
+    <label @onclick="FloatLabelClick" class="form-group-label @LabelClass @_labelClass">@Label</label>
 
     @if (InputType == "text" || InputType == "email" || InputType == "tel" || InputType == "password")
     {
-        <input @bind-value="TextValue" type="@InputType" onfocus="floatInputFocus(this)" onfocusout="floatInputFocusOut(this)"
+        <input @ref="textInput" @bind-value="TextValue" type="@InputType" @onfocus="FloatInputFocus" @onfocusout="FloatInputFocusOut"
                class="form-group-input form-control @InputClass" />
     }
     else if (InputType == "number")
     {
-        <input @bind-value="NumberValue" type="@InputType" onfocus="floatInputFocus(this)" onfocusout="floatInputFocusOut(this)"
+        <input @ref="textInput" @bind-value="NumberValue" type="@InputType" onfocus="floatInputFocus(this)" @onfocusout="FloatInputFocusOut"
                class="form-group-input form-control @InputClass" />
     }
     else
@@ -62,11 +62,39 @@
     [Parameter]
     public string LabelClass { get; set; } = default!;
 
+    string _labelClass = "";
+    ElementReference textInput;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
-            await JsRuntime.InvokeVoidAsync("checkFloatInputOnload");
+        {
+            if (!string.IsNullOrEmpty(TextValue) || NumberValue != default)
+            {
+                FloatInputFocus();
+                StateHasChanged();
+            }
+        }
 
         await base.OnAfterRenderAsync(firstRender);
+    }
+    
+    private void FloatInputFocus()
+    {
+        _labelClass = "floated-label";
+    }
+    private void FloatInputFocusOut()
+    {
+        if (!string.IsNullOrEmpty(TextValue) || NumberValue != default)
+        {
+            FloatInputFocus();
+            return;
+        }
+        _labelClass = "";
+    }
+    
+    private void FloatLabelClick()
+    {
+        textInput.FocusAsync();
     }
 }
