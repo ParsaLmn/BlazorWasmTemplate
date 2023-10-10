@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Localization;
-using Shared.Resoutces;
+using Shared.Resources;
 using System.Net;
 using System.Runtime.Serialization;
 

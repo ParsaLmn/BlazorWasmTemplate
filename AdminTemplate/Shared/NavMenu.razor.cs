@@ -2,7 +2,7 @@ using Bit.BlazorUI;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-using Shared.Resoutces;
+using Shared.Resources;
 
 namespace BlazorTemplate.Shared;
 public partial class NavMenu

@@ -3,7 +3,7 @@ using Application.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using Microsoft.JSInterop;
-using Shared.Resoutces;
+using Shared.Resources;
 
 namespace BlazorTemplate.Components
 {

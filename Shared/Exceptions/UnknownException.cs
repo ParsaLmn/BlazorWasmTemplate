@@ -1,4 +1,4 @@
-﻿using Shared.Resoutces;
+﻿using Shared.Resources;
 using System.Runtime.Serialization;
 
 namespace Shared.Exceptions;
