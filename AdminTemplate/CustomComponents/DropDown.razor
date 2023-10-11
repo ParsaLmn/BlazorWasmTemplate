@@ -1,0 +1,87 @@
+﻿<div>
+    <div @onclick="HideDropdown" class="dropdown-bg @_show"></div>
+    <div class="dropdown">
+        <button @onclick="ShowDropdown" class="dropdown-button @Class">
+            @if (HasAvatar)
+            {
+                <img width="@AvatarSize" height="@AvatarSize" src="@AvatarSrc" aria-label="avatar" alt="avatar" />
+            }
+            <span class="px-2">
+                @Label
+            </span>
+            @if (_show == "")
+            {
+                <BitIcon Style="font-size:0.7rem;" IconName="@BitIconName.ChevronDown" />
+            }
+            else
+            {
+                <BitIcon Style="font-size:0.7rem;" IconName="@BitIconName.ChevronUp" />
+            }
+        </button>
+        <div class="dropdown-content shadow-sm @dropdownSide @_show">
+            @ChildContent
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public bool HasAvatar { get; set; } = false;
+    /// <summary>
+    /// size in px. example:32
+    /// </summary>
+    [Parameter]
+    public string AvatarSize { get; set; } = "32";
+    [Parameter]
+    public string AvatarSrc { get; set; } = "/images/avatar.png";
+
+    /// <summary>
+    /// button class
+    /// </summary>
+    [Parameter]
+    public string Class { get; set; } = default!;
+
+    [Parameter]
+    public string Label { get; set; } = default!;
+
+    private bool _isLeftSide;
+    [Parameter]
+    public bool IsLeftSide { get { return _isLeftSide; } set { _isLeftSide = value; SwitchLeftOrRight(); } }
+
+    private bool _isRightSide;
+    [Parameter]
+    public bool IsRightSide { get { return _isRightSide; } set { _isRightSide = value; SwitchLeftOrRight(); } }
+
+    /// <summary>
+    /// Drop down Links
+    /// </summary>
+    [Parameter, EditorRequired]
+    public RenderFragment ChildContent { get; set; } = default!;
+
+    string dropdownSide = "dropdown-content-right";
+    string _show = "";
+
+    void ShowDropdown()
+    {
+        _show = "show";
+    }
+
+    void HideDropdown()
+    {
+        _show = "";
+    }
+
+    void SwitchLeftOrRight()
+    {
+        if (_isLeftSide)
+        {
+            _isRightSide = false;
+            dropdownSide = "dropdown-content-left";
+        }
+        if (_isRightSide)
+        {
+            _isLeftSide = false;
+            dropdownSide = "dropdown-content-right";
+        }
+    }
+}
