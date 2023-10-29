@@ -12,3 +12,9 @@
     .notification.show {
         bottom: 20px;
     }
+
+@media only screen and (min-width: 768px) {
+    .notification {
+        max-width: 400px;
+    }
+}
